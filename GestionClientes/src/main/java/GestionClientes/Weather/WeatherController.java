@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/weather")
+@RequestMapping("/api/weather")
 @CrossOrigin(origins = {"http://localhost:5173"})
 public class WeatherController {
 

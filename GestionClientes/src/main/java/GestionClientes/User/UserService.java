@@ -1,6 +1,9 @@
 package GestionClientes.User;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
+
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
@@ -24,6 +27,10 @@ public class UserService {
         userRepository.updateUser(user.id, user.email ,user.nombre, user.apellido, user.ciudad);
 
         return new UserResponse("El usuario se registró satisfactoriamente");
+    }
+
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 
     public UserDTO getUser(Long id) {

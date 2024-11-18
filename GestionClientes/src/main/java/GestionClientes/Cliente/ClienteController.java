@@ -2,6 +2,7 @@ package GestionClientes.Cliente;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,15 +17,16 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/clientes")
+@RequestMapping("/api/clientes")
 @CrossOrigin(origins = {"http://localhost:5173"})
 public class ClienteController {
 
     private final ClienteService clienteService;
 
     @PostMapping
-    public void createCliente(@RequestBody Cliente cliente){
+    public ResponseEntity<Cliente> createCliente(@RequestBody Cliente cliente){
         clienteService.createCliente(cliente);
+        return ResponseEntity.ok(cliente);
     }
 
     @GetMapping
